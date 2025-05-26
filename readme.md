@@ -15,12 +15,14 @@ This repository contains the implementation of a multilingual sequence-to-sequen
 ## 🏗️ Model Architecture
 
 The model features:
+
 - **Encoder**: XLM-RoBERTa for multilingual understanding
 - **Decoder**: Custom interleaved transformer with dual FFN layers
 - **Hybrid Design**: Combines normal and custom decoder layers
 - **Initialization**: Leverages pre-trained encoder weights for decoder initialization
 
 ### Key Components:
+
 - `NormalDecoderLayer`: Standard transformer decoder layer
 - `CustomDecoderLayer`: Modified decoder with interleaved FFN architecture
 - `InterleavedTransformerDecoder`: Hybrid decoder combining both layer types
@@ -31,6 +33,7 @@ The model features:
 ### 1. Environment Setup
 
 Create a conda environment:
+
 ```bash
 conda create -n seq2seq python=3.8
 conda activate seq2seq
@@ -41,16 +44,19 @@ conda activate seq2seq
 Install PyTorch compatible with your GPU. Visit [PyTorch Official Website](https://pytorch.org/get-started/locally/) to get the appropriate command for your system.
 
 **For CUDA 11.8:**
+
 ```bash
 conda install pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvidia
 ```
 
 **For CUDA 12.1:**
+
 ```bash
 conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia
 ```
 
 **For CPU only:**
+
 ```bash
 conda install pytorch torchvision torchaudio cpuonly -c pytorch
 ```
@@ -76,6 +82,7 @@ pip install sentencepiece
 Download the CINO v2 base model from Hugging Face:
 
 **Option 1: Using huggingface_hub (recommended)**
+
 ```bash
 # Install huggingface_hub
 pip install huggingface_hub
@@ -88,6 +95,7 @@ snapshot_download(repo_id='hfl/cino-base-v2', local_dir='./base')
 ```
 
 **Option 2: Manual download**
+
 ```bash
 # Create base directory
 mkdir -p base
@@ -98,6 +106,7 @@ mkdir -p base
 3. Place all downloaded files in the `./base/` directory
 
 **Option 3: Direct loading in code**
+
 ```python
 # The model can also be loaded directly without local download
 from transformers import XLMRobertaModel, XLMRobertaConfig
@@ -105,6 +114,7 @@ model = XLMRobertaModel.from_pretrained('hfl/cino-base-v2')
 ```
 
 **Required files in `base/` directory:**
+
 - `config.json`
 - `pytorch_model.bin`
 - `tokenizer.json`
@@ -217,6 +227,7 @@ your-project/
 ## 🔧 Model Configuration
 
 ### Key Parameters:
+
 - `tgtlen`: Maximum target sequence length (default: 256)
 - `batchsize`: Batch size for inference (default: 1)
 - `teacher_forcing`: Teacher forcing ratio during training (0.0 for inference)
@@ -224,33 +235,10 @@ your-project/
 - `n_best`: Number of best hypotheses to return (default: 3)
 
 ### Decoder Architecture:
+
 - Custom decoder layers with dual FFN structure
 - Regular insertion of normal decoder layers every 3 custom layers
 - Encoder weight initialization for improved convergence
-
-## 🎯 Performance Tips
-
-1. **GPU Memory**: For large sequences, consider reducing batch size or sequence length
-2. **Inference Speed**: Use greedy decoding for faster inference, beam search for better quality
-3. **Model Size**: The model supports various sizes depending on the base CINO configuration
-
-## 🐛 Troubleshooting
-
-### Common Issues:
-
-1. **CUDA Out of Memory**:
-   ```python
-   # Reduce batch size or sequence length
-   model = Seq2SeqModel(..., batchsize=1, tgtlen=128)
-   ```
-
-2. **Missing Keys Warning**:
-   - This is normal when loading pre-trained weights with architectural differences
-   - The model will still function correctly
-
-3. **Tokenizer Issues**:
-   - Ensure all tokenizer files are present in the `base/` directory
-   - Check that the tokenizer version is compatible
 
 ## 📚 Citation
 
