@@ -255,11 +255,17 @@ your-project/
 If you use this model in your research, please cite:
 
 ```bibtex
-@article{swcm,
-  author       = {Zeli Su and Ziyin Zhang and Guixian Xu and Jianing Liu and XU Han and Ting Zhang and Yushuang Dong},
-  title        = {Multilingual Encoder Knows more than You Realize: Shared Weights Pretraining for Extremely Low-Resource Languages},
+@article{su2025multilingualencoderknowsrealize,
+  author       = {Zeli Su and Ziyin Zhang and Guixian Xu and Jianing Liu and Xu Han and Ting Zhang and Yushuang Dong},
+  title        = {Multilingual Encoder Knows more than You Realize: Shared Weights Pretraining
+                  for Extremely Low-Resource Languages},
+  journal      = {CoRR},
+  volume       = {abs/2502.10852},
   year         = {2025},
-  url          = {http://dx.doi.org/10.13140/RG.2.2.11262.09285},
+  url          = {https://doi.org/10.48550/arXiv.2502.10852},
+  doi          = {10.48550/ARXIV.2502.10852},
+  eprinttype    = {arXiv},
+  eprint       = {2502.10852}
 }
 ```
 
