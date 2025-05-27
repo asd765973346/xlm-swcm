@@ -139,9 +139,9 @@ Download the XLM-SWCM model weights:
 # Create pretrained_model directory
 mkdir -p pretrained_model
 
-# Download XLM-SWCM weights from Hugging Face (coming soon)
-# URL: https://huggingface.co/[model-name]/xlm-swcm
-# Place the downloaded xlm-swcm.bin file in ./pretrained_model/
+Download XLM-SWCM weights from Hugging Face (coming soon)
+URL: https://huggingface.co/KEVVVV/xlm-swcm
+Place the downloaded xlm-swcm.bin file in ./pretrained_model/
 ```
 
 **Note**: The XLM-SWCM weights will be available on Hugging Face soon. Check back for updates.
