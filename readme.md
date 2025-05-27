@@ -1,6 +1,16 @@
 # Multilingual Seq2Seq Model with Interleaved Transformer Decoder
 
-This repository contains the implementation of a multilingual sequence-to-sequence model that leverages shared weights pretraining for extremely low-resource languages. The model combines XLM-RoBERTa encoder with a custom interleaved transformer decoder architecture.
+XLM-SWCM (Cross-lingual Language Model with Shared Weights Cross-lingual Modeling) is an innovative sequence-to-sequence model specifically designed to address the challenges of extremely low-resource languages. Our framework introduces a novel weight-sharing mechanism between encoder and decoder components, enabling effective knowledge transfer from multilingual encoders to generation tasks.This repository contains the implementation of a multilingual sequence-to-sequence model that leverages shared weights pretraining for extremely low-resource languages. The model combines CINO-v2-base encoder with a custom interleaved transformer decoder architecture.
+
+## Supported Languages
+
+Primary focus on Chinese minority languages:
+
+* Tibetan (bo)
+* Uyghur (ug)
+* Kazakh (kk)
+* Mongolian (mn)
+* Chinese (zh)
 
 ## 📋 Table of Contents
 
@@ -16,7 +26,7 @@ This repository contains the implementation of a multilingual sequence-to-sequen
 
 The model features:
 
-- **Encoder**: XLM-RoBERTa for multilingual understanding
+- **Encoder**: CINO-v2-base for multilingual understanding
 - **Decoder**: Custom interleaved transformer with dual FFN layers
 - **Hybrid Design**: Combines normal and custom decoder layers
 - **Initialization**: Leverages pre-trained encoder weights for decoder initialization
@@ -256,15 +266,3 @@ If you use this model in your research, please cite:
 ## 📄 License
 
 This project is released under the MIT License. See the LICENSE file for details.
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## 📞 Contact
-
-For questions and support, please open an issue in this repository.
-
----
-
-**Note**: This model is designed for research purposes and multilingual sequence-to-sequence tasks, particularly for low-resource languages. The interleaved decoder architecture provides enhanced generation capabilities compared to standard transformer decoders.
